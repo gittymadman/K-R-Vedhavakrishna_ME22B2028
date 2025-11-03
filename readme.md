@@ -48,8 +48,8 @@ Binance WebSocket --> Python Script --> PostgreSQL DB --> Analytics Engine --> D
  # AI Usage
 I used AI (ChatGPT and Gemini) to understand and build parts of my real-time crypto data ingestion system. It helped me break down concepts like async WebSocket connections, parsing trade messages from Binance, and saving data in Postgres. Instead of spending hours Googling everything, I was able to ask specific questions and get clean, quick answers.
 
-Some Prompts I Used:
-"Can you explain this code in simple terms?"<br>
+Some Prompts I Used:<br>
+
 "How do I parse Binance WebSocket data?"<br>
 "How to use asyncpg with connection pooling?"<br>
 "How to stop an asyncio task cleanly?"<br>
@@ -57,6 +57,7 @@ Some Prompts I Used:
 "Give SQL code to implement Candle diagrams for Crypto data"<br>
 
 Overall, AI made the whole process faster and I learnt a lot !
+
 
 
 

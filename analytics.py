@@ -5,7 +5,7 @@ from sklearn.linear_model import HuberRegressor, TheilSenRegressor
 from pykalman import KalmanFilter
 import statsmodels.api as sm
 
-# 1. Basic Stats
+
 def stats(df):
     return {
         'last_price': df['price'].iloc[-1],
@@ -16,7 +16,7 @@ def stats(df):
         # 'volume': df['qty'].sum()
     }
 
-# 2. OLS Regression
+
 def ols_ratio(x, y): # tells how x moves w.r.t y or vice versa
     x = sm.add_constant(x)
     model = sm.OLS(y, x, missing='drop').fit()
@@ -24,7 +24,7 @@ def ols_ratio(x, y): # tells how x moves w.r.t y or vice versa
     intercept = model.params[0]
     return beta, intercept, model
 
-# 3. Robust Regression Methods
+
 def hedge_ratio_huber(x, y):
     reg = HuberRegressor().fit(x.values.reshape(-1, 1), y.values)
     return reg.coef_[0], reg.intercept_
@@ -33,7 +33,7 @@ def hedge_ratio_theilsen(x, y):
     reg = TheilSenRegressor().fit(x.values.reshape(-1, 1), y.values)
     return reg.coef_[0], reg.intercept_
 
-# 4. Kalman Filter: Dynamic Hedge Ratio Estimation
+
 def kalman_hedge_ratio(x, y):
     observations = y.values - x.values
     kf = KalmanFilter(
@@ -47,7 +47,7 @@ def kalman_hedge_ratio(x, y):
     state_means, _ = kf.filter(observations)
     return state_means.flatten()  # time-varying beta
 
-# 5. Spread & Z-Score Calculation
+
 def spread_and_z_score(x, y, beta):
     spread = y - x * beta
     mu = spread.rolling(window=100, min_periods=10).mean()
@@ -55,7 +55,7 @@ def spread_and_z_score(x, y, beta):
     z = (spread - mu) / sigma
     return spread, z
 
-# 6. ADF Test
+
 def adf_test(series):
     series = series.dropna()
     res = adfuller(series)
@@ -66,11 +66,11 @@ def adf_test(series):
         "nobs": res[3]
     }
 
-# 7. Rolling Correlation
+
 def rolling_corr(x, y, window=60):
     return x.rolling(window).corr(y)
 
-# 8. Mean-Reversion Backtest
+
 def backtest_mean_reversion(z_scores, entry_threshold=2, exit_threshold=0):
     position = 0
     positions = []

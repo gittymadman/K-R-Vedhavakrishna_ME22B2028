@@ -13,7 +13,7 @@ engine = create_engine(DB_URL)
 # Dash App Setup
 app = Dash(__name__)
 app.layout = html.Div([
-    html.H1("Live Crypto Candlestick & Pair Analytics"),
+    html.H1("Live Crypto Candlestick & Pair Analytics - Binance API"),
 
     # Dropdown for symbol
     dcc.Dropdown(
@@ -70,8 +70,8 @@ app.layout = html.Div([
         id="interval-update",
         interval=5000,  # 5s updates
         n_intervals=0
-    ),
-])
+    )])
+
 def plot_zscore_with_signals(z, positions):
     fig = go.Figure()
 
@@ -80,8 +80,7 @@ def plot_zscore_with_signals(z, positions):
         x=pd.to_datetime(z.index, utc=True).tz_convert('Asia/Kolkata'),
         y=z,
         mode='lines',
-        name='Z-Score'
-    ))
+        name='Z-Score'))
 
     # Add entry/exit thresholds
     fig.add_hline(y=2, line_dash='dash', line_color='red', annotation_text='Entry Threshold')
@@ -96,23 +95,20 @@ def plot_zscore_with_signals(z, positions):
         y=z.loc[entries.index],
         mode='markers',
         marker=dict(color='red', size=8, symbol='triangle-up'),
-        name='Entry'
-    ))
+        name='Entry'))
 
     fig.add_trace(go.Scatter(
         x=pd.to_datetime(exits.index, utc=True).tz_convert('Asia/Kolkata'),
         y=z.loc[exits.index],
         mode='markers',
         marker=dict(color='green', size=8, symbol='triangle-down'),
-        name='Exit'
-    ))
+        name='Exit'))
 
     fig.update_layout(
         title='Z-Score with Entry and Exit Points',
         xaxis_title='Time',
         yaxis_title='Z-Score',
-        hovermode='x unified'
-    )
+        hovermode='x unified')
 
     return fig
 

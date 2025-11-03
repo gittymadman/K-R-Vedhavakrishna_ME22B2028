@@ -50,13 +50,14 @@ I used AI (ChatGPT and Gemini) to understand and build parts of my real-time cry
 
 Some Prompts I Used:
 "Can you explain this code in simple terms?"<br>
-"How do I parse Binance WebSocket data?"\n
-"How to use asyncpg with connection pooling?"\n
-"How to stop an asyncio task cleanly?"\n
-"Can you give me code to upload Binance Crypto data into postgres and explain what you are doing"
-"Give SQL code to implement Candle diagrams for Crypto data"
+"How do I parse Binance WebSocket data?"<br>
+"How to use asyncpg with connection pooling?"<br>
+"How to stop an asyncio task cleanly?"<br>
+"Can you give me code to upload Binance Crypto data into postgres and explain what you are doing"<br>
+"Give SQL code to implement Candle diagrams for Crypto data"<br>
 
-Overall, AI made the whole process faster
+Overall, AI made the whole process faster and I learnt a lot !
+
 
 
 

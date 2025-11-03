@@ -5,6 +5,8 @@ This is my project for building a real-time crypto analytics and trading signals
 
 There are also metrics like **support/resistance levels**, **cross-asset correlations**, and more. All of this is displayed nicely in a **Dash** app with interactive charts.
 
+Video Drive Link: https://drive.google.com/file/d/1FDrCeTTAfH6FFBTlrqGh-DxIul453110/view?usp=sharing
+(Have attached the same in the repo also)
 ---
 
 ### What This Project Can Do ###
@@ -57,6 +59,7 @@ Some Prompts I Used:<br>
 "Give SQL code to implement Candle diagrams for Crypto data"<br>
 
 Overall, AI made the whole process faster and I learnt a lot !
+
 
 
 

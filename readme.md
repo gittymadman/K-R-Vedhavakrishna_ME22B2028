@@ -19,12 +19,12 @@ There are also metrics like **support/resistance levels**, **cross-asset correla
 
 ---
 
-## 🏗️ How It Works (Architecture)
+## How It Works (Architecture)
 
 ```plaintext
 Binance WebSocket --> Python Script --> PostgreSQL DB --> Analytics Engine --> Dash Dashboard
 ```
-### Explanation of Different Files ###
+# Explanation of Different Files 
 1. **Main.py** -
    a. This acts as the backend of the project. It reads binance data from the Binance API for the symbols. This data is then downsampled into 4 rows -> ts (timestamp), symbol, price, qty.
    b. We take a batch size of 100 or a time frame of 2 seconds to get data from the API, this is then pushed into the postgres db smoothly using pythton's asyncpg library.
@@ -45,7 +45,7 @@ Binance WebSocket --> Python Script --> PostgreSQL DB --> Analytics Engine --> D
 
 
 
- ### AI Usage ###
+ # AI Usage
 I used AI (ChatGPT and Gemini) to understand and build parts of my real-time crypto data ingestion system. It helped me break down concepts like async WebSocket connections, parsing trade messages from Binance, and saving data in Postgres. Instead of spending hours Googling everything, I was able to ask specific questions and get clean, quick answers.
 
 Some Prompts I Used:
@@ -56,3 +56,4 @@ Some Prompts I Used:
 "Can you give me code to upload Binance Crypto data into postgres and explain what you are doing"
 
 Overall, AI made the whole process faster
+
